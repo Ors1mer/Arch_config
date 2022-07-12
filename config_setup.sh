@@ -15,6 +15,17 @@ echo "Copying Polybar config..."
 [ ! -d $HOME/.config/polybar] && mkdir $HOME/.config/polybar
 cp -r $PWD/configs/polybar/* $HOME/.config/polybar/*
 
+# alacritty
+echo "Copying Alacritty config..."
+[ ! -d $HOME/.config/alacritty] && mkdir $HOME/.config/alacritty
+cp -r $PWD/configs/alacritty/* $HOME/.config/alacritty/*
+
+# vim
+echo "Copying vim setup and addons..."
+[ ! -d $HOME/.vim] && mkdir $HOME/.vim
+cp -r $PWD/configs/.vim/* $HOME/.vim/*
+cp $PWD/configs/.vimrc $HOME/.vimrc
+
 # pywal and wallpaper
 echo "Setting up wallpaper & terminal colorscheme..."
 [ ! -d $HOME/Pictures/wallpapers] && mkdir $HOME/Pictures/wallpapers

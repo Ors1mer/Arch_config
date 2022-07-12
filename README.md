@@ -1,20 +1,19 @@
 # Arch config
+![Desktop](images/example.png)
 ### About
 Configs are created and stored for my personal use. <br>
-The shell scripts must work for the most distros, though I recommend looking at the **Install** section before using them if you want to.
+The shell scripts must work for the most distros. Btw, there's an **Install**
+section down below.
 
 ### Programs I use:
 * ***bspwm*** as WM
 * ***sxhkd*** as hotkey deamon
 * ***polybar*** as status bar
 * ***picom*** as composite manager
-* ***pywal*** for colorscheme
+* ***alacritty*** as the terminal emulator
+* ***pywal*** for colorscheme (sometimes)
 * ***bash*** as the shell
 * ***vim*** as the main text editor
-* ***xfce4*** as the terminal emulator
-
-### How it looks
-![Desktop](https://raw.githubusercontent.com/Ors1mer/Arch_config/main/images/example.png)
 
 ### Install
 Firstly, move to the repo directory:
@@ -26,13 +25,13 @@ Configs installation is pretty simple::
 (sudo) ./post-install.sh
 ./config_setup.sh
 ```
-Where *post-install.sh* installs all of the packages from packages.dat and also some python pip modules that I use. *config_setup.sh* should be used with caution as it rewrites bspwm, sxhkd and polybar configuration files, and also applies pywal colorscheme and wallpaper.
+Where *post-install.sh* installs all of the packages from packages.dat and also
+some python pip modules. *config_setup.sh* should be used with
+caution as it rewrites bspwm, sxhkd, alacritty, and polybar configuration files,
+and also may apply pywal colorscheme and wallpaper.
 <br><br>
-Other dotfiles must be moved manually into the user's home directory (for the sake of safety I didn't add this in the script):
+Other dotfiles (except .vimrc) must be moved manually into the user's home
+directory (for the sake of safety I didn't add this in the script):
 ```bash
 cp -r configs/.*rc $HOME/
-```
-And the last but not least, terminal config:
-```bash
-cp -r configs/terminalrc $HOME/.config/xfce4/terminal/
 ```
