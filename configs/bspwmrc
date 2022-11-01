@@ -2,9 +2,42 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bash ~/.config/polybar/launch.sh --colorblocks
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V
+# Second monitor setup
+if [[ $(xrandr -q | grep 'HDMI-2 connected') ]]; then
+  xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-2 --mode 1920x1080 --rate 119.98 --above eDP-1
+  bspc monitor HDMI-2 -d VI VII VIII IX X
+else
+  xrandr --output HDMI-2 --off
+  # Remove nodes
+  while bspc node @V: --kill; do
+    :
+  done
+  while bspc node @VI: --kill; do
+    :
+  done
+  while bspc node @VII: --kill; do
+    :
+  done
+  while bspc node @VIII: --kill; do
+    :
+  done
+  while bspc node @IX: --kill; do
+    :
+  done
+  while bspc node @X: --kill; do
+    :
+  done
+  # Remove workspaces
+  bspc desktop -r V VI VII VIII IX X
+  # Remove monitor
+  bspc monitor HDMI-2 -r
+fi
+
+# Launch polybar
+bash ~/.config/polybar/launch.sh --shapes
+
 
 bspc config border_width         0
 bspc config window_gap           8
