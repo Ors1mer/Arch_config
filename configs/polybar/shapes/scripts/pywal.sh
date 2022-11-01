@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Color files
-PFILE="$HOME/.config/polybar/colorblocks/colors.ini"
-RFILE="$HOME/.config/polybar/colorblocks/scripts/rofi/colors.rasi"
+PFILE="$HOME/.config/polybar/shapes/colors.ini"
+RFILE="$HOME/.config/polybar/shapes/scripts/rofi/colors.rasi"
 
 # Get colors
 pywal_get() {
@@ -31,10 +31,10 @@ change_color() {
 	* {
 	  al:    #00000000;
 	  bg:    ${BG}FF;
-	  bg1:   ${SH8}FF;
-	  bg2:   ${SH7}FF;
-	  bg3:   ${SH6}FF;
-	  fg:    ${FGA}FF;
+	  bg1:   ${SH2}FF;
+	  bg2:   ${SH3}FF;
+	  bg3:   ${SH4}FF;
+	  fg:    ${FG}FF;
 	}
 	EOF
 	
@@ -42,16 +42,16 @@ change_color() {
 }
 
 # Main
-if [[ -f "$HOME/.local/bin/wal" ]]; then
-	#if [[ "$1" ]]; then
-	#	pywal_get "$1"
+if [[ -f "/usr/bin/wal" ]]; then
+	if [[ "$1" ]]; then
+		pywal_get "$1"
 
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
 
 		BG=`printf "%s\n" "$background"`
-		FG=`printf "%s\n" "$color0"`
-		FGA=`printf "%s\n" "$color7"`
+		FG=`printf "%s\n" "$foreground"`
+		FGA=`printf "%s\n" "$foreground"`
 		SH1=`printf "%s\n" "$color1"`
 		SH2=`printf "%s\n" "$color2"`
 		SH3=`printf "%s\n" "$color1"`
@@ -59,13 +59,13 @@ if [[ -f "$HOME/.local/bin/wal" ]]; then
 		SH5=`printf "%s\n" "$color1"`
 		SH6=`printf "%s\n" "$color2"`
 		SH7=`printf "%s\n" "$color1"`
-		SH8=`printf "%s\n" "$color2"`
+		SH8=`printf "%s\n" "$color7"`
 
 		change_color
-	#else
-	#	echo -e "[!] Please enter the path to wallpaper. \n"
-	#	echo "Usage : ./pywal.sh path/to/image"
-	#fi
+	else
+		echo -e "[!] Please enter the path to wallpaper. \n"
+		echo "Usage : ./pywal.sh path/to/image"
+	fi
 else
 	echo "[!] 'pywal' is not installed."
 fi
