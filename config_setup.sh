@@ -33,4 +33,4 @@ cp -r $PWD/images/* $HOME/Pictures/wallpapers
 #cat ~/.cache/wal/sequences &
 
 bspc wm -r
-wal -i $HOME/Pictures/wallpapers/earth.jpg
+wal -i $HOME/Pictures/wallpapers/cp3.jpg
