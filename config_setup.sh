@@ -5,7 +5,6 @@ echo "Copying BSPWM & SXHKD configs..."
 # bspwm
 [ ! -d $HOME/.config/bspwm] && mkdir $HOME/.config/bspwm
 cp -r $PWD/configs/bspwmrc $HOME/.config/bspwm/bspwmrc
-
 # sxhkd
 [ ! -d $HOME/.config/sxhkd] && mkdir $HOME/.config/sxhkd
 cp -r $PWD/configs/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
@@ -28,9 +27,9 @@ cp $PWD/configs/.vimrc $HOME/.vimrc
 
 # pywal and wallpaper
 echo "Setting up wallpaper & terminal colorscheme..."
-[ ! -d $HOME/Pictures/wallpapers] && mkdir $HOME/Pictures/wallpapers
-cp -r $PWD/images/* $HOME/Pictures/wallpapers
+[ ! -d $HOME/pictures/wallpapers] && mkdir $HOME/pictures/wallpapers
+cp -r $PWD/images/* $HOME/pictures/wallpapers
 #cat ~/.cache/wal/sequences &
 
 bspc wm -r
-wal -i $HOME/Pictures/wallpapers/cp3.jpg
+wal -i $HOME/pictures/wallpapers/cp3.jpg
