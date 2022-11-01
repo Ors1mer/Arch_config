@@ -26,9 +26,9 @@ window {
     background-color:               @bg;
     text-color:                     @fg;
 	border:							0px;
-	border-color:					@bg1;
-    border-radius:                  0px;
-	width:							300px;
+	border-color:					@ac;
+    border-radius:                  12px;
+	width:							350px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -36,40 +36,31 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						12px 15px 12px 15px;
-	background-color: 				@bg2;
-	text-color: 					@fga;
-}
-
-textbox-prompt-colon {
 	padding: 						10px 15px 10px 15px;
-	font:							"Iosevka Nerd Font 12";
 	background-color: 				@bg1;
-	text-color: 					@fga;
-	expand: false;
-	str: "";
+	text-color: 					#FFFFFF;
+	font:							"Iosevka Nerd Font 10";
 }
 
 entry {
     background-color:               @bg2;
-    text-color:                     @fga;
-    placeholder-color:              @fga;
+    text-color:                     #FFFFFF;
+    placeholder-color:              #FFFFFF;
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search...";
-	padding: 						15px 0px 0px 15px;
-    margin:                         0px 250px 0px 0px;
-    border-radius:                  0px 50px 50px 0px;
+    padding:                        10px;
+    border-radius:                  0px 12px 12px 0px;
     blink:                          true;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
+	children: 						[ prompt, entry ];
     background-color:               @bg2;
-    text-color:                     @fg;
+    text-color:                     #FFFFFF;
     expand:                         false;
 	border:							0px;
-    border-radius:                  0px;
+    border-radius:                  12px;
 	border-color:					@ac;
     spacing:                        0px;
 }
@@ -78,7 +69,7 @@ listview {
     background-color:               @al;
     padding:                        10px 10px 10px 10px;
     columns:                        1;
-    lines:                          5;
+    lines:                          10;
     spacing:                        5px;
     cycle:                          true;
     dynamic:                        true;
@@ -100,7 +91,7 @@ element {
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
-	padding: 						8px 8px 8px -25px;
+    padding:                        6px;
 }
 
 element-icon {
@@ -116,9 +107,9 @@ element-text {
 }
 
 element selected {
-    background-color:               @bg;
-    text-color:                     @bg3;
-	border:							0px;
-    border-radius:                  0px;
-    border-color:                  	@bg;
+    background-color:               @bg3;
+    text-color:                     @bg;
+	border:							0px 0px 0px 0px;
+    border-radius:                  12px;
+    border-color:                  	@bg1;
 }
