@@ -5,19 +5,14 @@
 # terminal emulator
 super + Return
     alacritty
-	#xfce4-terminal
 
 # program launcher
 super + @space
 	dmenu_run
 
-# Firefox launch
-super + f
-	firefox
-
-# Telegram launch
-super + e
-    Telegram
+# Brave launch
+super + b
+	brave
 
 # Flameshot launch
 super + z
