@@ -1,0 +1,18 @@
+set selection-clipboard clipboard
+
+set statusbar-bg           "#111"
+set statusbar-fg           "#777"
+
+set inputbar-bg            "#000"
+set inputbar-fg            "#ccc"
+
+set completion-highlight-bg "#191666"
+set completion-highlight-fg "#ccc"
+
+set default-bg             "#111"
+
+set recolor-lightcolor     "#111"
+set recolor-darkcolor      "#ccc"
+set recolor                true
+
+set database               sqlite
