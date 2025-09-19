@@ -1,0 +1,80 @@
+# ~/.bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Set keyboards
+setxkbmap -layout us,fr -option "grp:ctrl_alt_toggle"
+
+# I don't wanna see these fucking dirs ever again
+rmdir ~/Downloads ~/Pictures ~/Templates ~/Videos &>/dev/null
+
+### Functions
+if ! command -v open_man_in_vim >/dev/null 2>&1; then
+  open_man_in_vim() {
+    if [ $# -lt 1 ]; then
+        man
+        return
+    fi
+    case ${1} in
+      -*) man $@ ;;
+       *) man $@ 2>&1 | vim - -R -c \
+              'set ft=man | syntax on | set nonumber | set norelativenumber' ;;
+    esac
+  }
+fi
+
+if ! command -v hide >/dev/null 2>&1; then
+  hide() {
+    if [ $# -lt 1 ]; then
+        return
+    fi
+    mv ${1} .${1}
+  }
+fi
+
+if ! command -v unhide >/dev/null 2>&1; then
+  unhide() {
+    if [ $# -lt 1 ]; then
+        return
+    fi
+    case ${1} in
+      .*) mv ${1} ${1#.} ;;
+       *) mv .${1} ${1} ;;
+    esac
+  }
+fi
+
+### Exports
+export PS1="\[\033[0;36m\]\w \[\033[1;36m\]$ \[\033[0;37m"
+export PATH="$PATH:$HOME/.local/bin"
+export EDITOR=nvim
+export BROWSER=firefox
+export MINICOM="-c on"
+
+# infinite history
+export HISTFILESHIZE=
+export HISTSIZE=
+export HISTCONTROL=ignoreboth # no duplicates
+export HISTTIMEFORMAT="[%F %T]"
+export HISTFILE=~/.cache/bash_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+### Aliases
+alias n="nvim"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+
+alias gs="git status"
+alias gd="git diff"
+alias gb="git branch"
+alias gl="git log"
+alias gr="git remote"
+
+alias z="devour zathura"
+alias s="nsxiv"
+
+alias rm="rm -i"
+
+alias man="open_man_in_vim"
