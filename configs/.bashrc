@@ -9,13 +9,12 @@
 setxkbmap -layout us,fr -option "grp:ctrl_alt_toggle"
 
 # Import colorscheme from wal
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 # --- Variable Changes ---
 
 # minimalistic command prompt
-export PS1="\[\033[0;36m\]\w \[\033[1;36m\]\$ \[\033[0;37m\]"
-
+export PS1="\[\033[0;36m\]\w \[\033[1;36m\]\$ \033[0;37m"
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin/"
 
 # --- Aliases ---
