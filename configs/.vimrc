@@ -13,6 +13,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ap/vim-css-color'
 Plugin 'vifm/vifm.vim'
+Plugin 'instant-markdown/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,12 +42,13 @@ set nonumber
 " Status line
 set laststatus=2
 
-" Highlight doesn't work for some reason
+" Works only in gvim
 highlight VertSplit guibg=#181818 guifg=#996228
 highlight SLBackground guibg=#181818 guifg=#996228
-highlight SLFileType guibg=indianred guifg=#663333
+highlight SLFileType guibg=#996228 guifg=#663333
 highlight SLBufNumber guibg=SeaGreen guifg=#003333
 highlight SLLineNumber guibg=#80a0ff guifg=#003366
+
 
 set statusline=
 set statusline=\%#SLBackground#
